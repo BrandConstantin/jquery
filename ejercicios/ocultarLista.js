@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#ejercicio1").click(function(){
-        $("#miFormulario :input[name='nombre']").css("background-color", "yellow");
+    $("#ocultar").click(function(o){
+        $("#menu ol.listaMenu").hide(7000);
     });
 });
