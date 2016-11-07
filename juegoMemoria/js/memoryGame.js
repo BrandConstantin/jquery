@@ -23,6 +23,14 @@ function shuffle() {
         array_img[idx] = $(elem).children().first().attr("src");
 	});
 
+	/*
+	//también se puede hacer de este modo
+	$("#cartas div img").each(function(idx, elem){
+	//asigna al array de imagenes el nombre de la imágen
+        array_img[idx] = $(this).attr("src");
+	});
+	*/
+
 	//vuelve a recorrer todas las casillas
 	$("#cartas div").each(function(idx,elem){
 		//calcula un numero aleatorio del 0 hasta el tamaño del array de imagenes
