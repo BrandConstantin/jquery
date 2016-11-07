@@ -1,0 +1,54 @@
+body{
+    background-color: beige;
+    z-index: -1;
+    color: #000;
+}
+
+#contenedor{
+    position: relative;
+    margin: 0 auto;
+    padding: 15px;
+    width: 700px;
+    height: 800px;
+    border: 1px dashed #000;
+}
+
+#controles{
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #f0f
+}
+
+#comenzar, #vidas, #nivel, #color {
+    float: left;
+    margin-left: 25px;
+    display: block;
+}
+
+#juego{
+    position: relative;
+    width: 700px;
+    height: 770px;
+    margin: 0 auto;
+    top: 10px;
+    background-color: beige;
+}
+
+.bolita{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 730px;
+}
+
+#fin{
+    position: relative;
+    top: 350px;
+    font-size: 70px;
+    color: black;
+    text-align: center;
+}
+

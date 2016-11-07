@@ -1,0 +1,114 @@
+body {
+    cursor: url('../img/punto.jpg');
+    background-image: url("../img/fondo.jpg");
+    background-size: 99% 99%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 98%;
+    height: 950px;
+    border: 2px solid #000;
+}
+
+#botones {
+    background-color: navy;
+    margin: 0 auto;
+    border: 2px solid #000;
+    width: 1190px;
+    height: 50px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    text-align: center;
+    color: #fff;
+}
+
+#botones span, #botones a {
+    text-transform: none;
+    font-size: 20px;
+    background-color: #fff;
+    padding: 5px 70px;
+    /* margin-top: 50px; */
+    color: #000;
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+#botones a:hover {
+    background-color: #456;
+    color: #fff;
+}
+
+#note, #mensaje {
+    margin: 0 auto;
+    color: #fff;
+    padding: 5px;
+    width: 1190px;
+    text-align: center;
+    font-size: 24px;
+    font-family: arial;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+
+#contenedor {
+    margin: 0 auto;
+    border: 1px solid red;
+    width: 1200px;
+    height: 750px;
+    padding-top: 50px;
+    cursor: url("../img/punto.jpg"), pointer;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+}
+
+ #mensaje {
+    position: absolute;
+    opacity: 0.8;
+    display: none;
+}
+
+.disparar {
+    border: 2px solid red;
+    width: 150px;
+    height: 170px;
+    position: absolute;
+    display: none;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    cursor: url('../img/punto.jpg'), pointer;
+}
+
+.disparar:hover {
+    opacity: 0.6;
+    filter:alpha(opacity=60);
+}
+
+.halo1 {
+    background: url("../img/halo1.png");
+}
+
+.halo2 {
+    background: url("../img/halo2.png");
+}
+
+.halo3 {
+    background: url("../img/halo3.png");
+}
+
+.halo4 {
+    background: url("../img/halo4.png");
+}
+
+
+.soldado {
+    background: url("../img/soldado.png");
+}

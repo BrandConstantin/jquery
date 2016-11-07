@@ -1,0 +1,21 @@
+#contenedor{
+	width:1100px;
+	height:1100px;
+	float:left;
+	margin:auto;
+}
+
+#contenedor div{
+	border:1px solid black;
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.green{
+	background-color: lightgreen;	
+}
+
+.pink{
+	background-color: lightpink;	
+}

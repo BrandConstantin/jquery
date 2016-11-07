@@ -1,0 +1,104 @@
+body{
+    background-color: #a99;
+    z-index: -1;
+}
+
+#titulo{
+    text-align: center;
+    font-size: 50px;
+    font-family: monospace;
+    text-shadow: 1px 1px 0px rgb(200,200,200),
+                 2px 2px 0px rgb(180,180,180),
+                 3px 3px 0px rgb(160,160,160),
+                 4px 4px 0px rgb(140,140,140),
+                 5px 5px 0px rgb(0,0,0),
+                 8px 8px 20px rgb(0,0,0);
+    color: #34f98a;
+}
+
+#contenedor{
+    position: relative;
+    margin: 0 auto;
+    padding: 15px;
+    width: 100%;
+}
+
+#controles{
+    position: relative;
+    text-align: center;
+    top: 40px;
+    height: 50px;
+}
+
+#controles > * {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+#mensaje{
+    display: block;
+    color: red;
+    margin-top: 540px;
+}
+
+#tablero{
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 516px;
+    height: 516px;
+    background-color: navy;
+    border: 1px solid #fff;
+}
+
+#tablero > p{
+    color: red;
+    position: absolute;
+    width: 516px;
+    height: 516px;
+    text-align: center;
+    font-size: 90px;
+    line-height: 250px;
+    text-shadow: 3px 3px 5px white;
+    display: none;
+    z-index: 2;
+}
+
+.gota{
+    background-image: url(../img/gota.png);
+    width: 82px;
+    height: 82px;
+    opacity: 0;
+}
+
+.barco{
+    background-image: url(../img/barco.png);
+    opacity: 0;
+}
+
+.casilla{
+    float: left;
+    width: 84px;
+    height: 84px;
+    border: 1px solid #fff;
+    text-align: center;
+    line-height: 84px;
+    color: white;
+    background-color: black;
+}
+
+.lineaH{
+    position: absolute;
+    width: 516px;
+    height: 2px;
+    background-color: #fff;
+    top: 85px;
+}
+
+.lineaV{
+    position: absolute;
+    width: 2px;
+    height: 516px;
+    background-color: #fff;
+    left: 85px;
+}

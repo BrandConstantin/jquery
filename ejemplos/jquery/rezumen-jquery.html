@@ -1,0 +1,592 @@
+<html>
+	<p>Para que jQuery funcione en tu web tienes que ir a jQuery.com y descargar la libreria, luego incluir esta libreria en tu web. Se hace a través de etiqueta script incluyda en la cabecera:</p>
+	<pre><span>
+		&lt;script src="jquery-3.1.1.min.js"&gt;&lt;/script&gt;
+	</span></pre>
+	<p>Para que jquery funcione, el documento tiene que empezar con la siguiente linea:</p>
+	<pre><span>
+		$(document).ready(function(){
+			//aqui los métodos de jQuery
+		});
+	</span></pre>
+	<p>Veamos algunos ejemplos con selectores:</p>
+	<pre><span>
+		//basandose en el nombre del elemento 'p'
+		$(document).ready(function(){
+			$("p").click(function(){
+				$(this).hide();
+			});
+		});
+
+		//basandose en el #id
+		$(document).ready(function(){
+			$("button").click(function(){
+				$(#test).hide();
+			});
+		});
+		.........
+		&lt;p id="test"&gt;Click aqui para eliminar texto&lt;/p&gt;
+	</span></pre>
+	<p>Si se emplea el simbolo all (<span>*</span>) se esconderán todos los elementos.</p>
+	<p>Para esconder un elemento se puede emplear uno de los siguientes modos:</p>
+	<ul>
+		<li>$("p.ejemplo").hide();</li>
+		<li>$("p:first").hide();</li>
+		<li>$("p:first").hide();</li>
+		<li>$("ul li:first").hide();</li>
+		<li>$("[href]").hide();</li>
+		<li>$("a[target = '_blank']").hide();</li>
+		<li>$("a[target != '_blank']").hide();</li>
+		<li>$(":button").hide(); - para esconder un boton</li>
+		<li>$("tr:even").css("background-color", "yellow"); - para establecer un color de background a la filas impares</li>
+		<li>$("tr:odd").hide(); - para establecer un color de background a la filas pares</li>
+	</ul>
+	<p>En jQuery hay una seria de eventos:</p>
+	<ul>
+		<li>click - cuando se hace click sobre un elemento</li>
+		<li>dbclick - cuando se hace doble click sobre un elemento</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("p").dblclick(function(){
+				        $(this).hide();
+				    });
+				});
+			</span></pre>
+		<li>mouseenter - cuando el ratón pasa por encima de un elemento:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#alerta").mouseenter(function(){
+				        alert("Has pasado por encima!");
+				    });
+				});
+			</span></pre>
+		<li>mouseleave - cuando el ratón sale del área de un elemento:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#alerta").mouseleave(function(){
+				        alert("Estas abandonando el area!");
+				    });
+				});
+			</span></pre>
+		<li>mousedown - cuando el boton del ratón esta presionado hacia izquierda, derecha o en medio:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#principal").mousedown(function(){
+				        alert("Alerta!");
+				    });
+				});
+			</span></pre>
+		<li>mouseup - lo mismo que mousedown pero la función se ejecuta no cuando se presiona el ratón, sino cuando se deja de ser presionado:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#principal").mousedown(function(){
+				        alert("Alerta!");
+				    });
+				});
+			</span></pre>
+		<li>hover - es una combinación de mouseenter() y mouseleave():</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#principal").hover(function(){
+				        alert("Has entrado en el cuadraito!");
+				    },
+				    function(){
+				        alert("Ahora, te has salido del cuadraito!");
+				    });
+				});
+			</span></pre>
+		<li>focus - se ejecuta cuando un campo de un formulario se esta utilizando:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("input").focus(function(){
+				        $(this).css("background-color", "#123");
+				    });
+				    $("input").blur(function(){
+				        $(this).css("background-color", "#789");
+				    });
+				});
+			</span></pre>
+		<li>on - se utiliza para agrupar más de un método:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("p").on({
+				        mouseenter: function(){
+				            $(this).css("background-color", "yellow");
+				        },
+				        mouseleave: function(){
+				            $(this).css("background-color", "lightgreen");
+				        },
+				        click: function(){
+				            $(this).css("background-color", "orange");
+				        }
+				    });
+				});
+			</span></pre>
+	</ul>
+
+
+
+
+	<h3>Efectos</h3>
+	<p>jQuery dispone de varios efectos, con cual se puede hacer un monton de cosas interesantes. Veamos:</p>
+	<ul>
+		<li>hide() - esconder</li>
+		<li>show() - mostrar</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#esconder").click(function(){
+				        $("p").hide(2000);
+				    });
+				    $("#mostrar").click(function(){
+				        $("p").show(4000);
+				    });
+				});
+			</span></pre>
+		<li>toggle() - hace lo mismo que hide() y show():</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        $("#principal").toggle();
+				    });
+				});
+			</span></pre>
+		<li>fade() - que hace los elementos visibles. Hay 4 tipos de métodos fade:</li>
+			<ul>
+				<li>fadeIn() - muestra elementos ocultos y tiene como valores 'slow', 'fast' y segundos:</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("button").click(function(){
+						        $("#d1").fadeIn();
+						        $("#d2").fadeIn("slow");
+						        $("#d3").fadeIn(3000);
+						    });
+						});
+					</span></pre>
+				<li>fadeOut() - oculta elementos visibles y tiene los mismos valores que fadeIn():</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("button").click(function(){
+						        $("#d1").fadeOut();
+						        $("#d2").fadeOut("slow");
+						        $("#d3").fadeOut(3000);
+						    });
+						});
+					</span></pre>
+				<li>fadeToggle() - junta las funciones de fadeIn() y fadeOut():</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("button").click(function(){
+						        $("#d1").fadeToggle();
+						        $("#d2").fadeToggle("slow");
+						        $("#d3").fadeToggle(3000);
+						    });
+						});
+					</span></pre>
+				<li>fadeTo() - se usá para dar opacidad a los elementos:</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("button").click(function(){
+						        $("#d1").fadeTo("slow", 0.1);
+						        $("#d2").fadeTo("slow", 0.5);
+						        $("#d3").fadeTo("slow", 0.9);
+						    });
+						});
+					</span></pre>
+			</ul>
+		<li>sliding() - que mueve los elementos hacia arriba o hacia abajo, y se divide en:</li>
+			<ul>
+				<li>slideDown() - que desliza los elementos hacia abajo:</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("#d1").click(function(){
+						        $("#d2").slideDown("slow");
+						    });
+						});
+					</span></pre>
+				<li>slideUp() - desliza un elemento hacia arriba:</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("#d1").click(function(){
+						        $("#d2").slideUp("slow");
+						    });
+						});
+					</span></pre>
+				<li>slideToggle() - desliza un elemento tanto hacia arriba como hacia abajo:</li>
+					<pre><span>
+						$(document).ready(function(){
+						    $("#d1").click(function(){
+						        $("#d2").slideToggle("slow");
+						    });
+						});
+					</span></pre>
+			</ul>
+		<li>animate() - se usá para crear animaciones:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        var div = $("#d1");
+				        div.animate({height: '600px', opacity: '0.5'}, "slow");
+				        div.animate({width: '600px', opacity: '0.9'}, "3000");
+				        div.animate({height: '100px', opacity: '0.5'}, "slow");
+				        div.animate({width: '100px', opacity: '0.9'}, "3000");
+				    });
+				});
+			</span></pre>
+		<li>stop() - este método se utiliza para parar las animaciones ante de que este acaben de por si:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#stop").click(function(){
+				        $("#d2").stop();
+				    });
+				});
+			</span></pre>
+		<li>callback() - se utiliza para hacer una llamada a una función, esta función se ejecuta una vez que el efecto anterior ha acabado 100%. También existe la posibilidad de que primero hace la llamada a una función y luego se ejecuta la anterior:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        $("p").hide("slow", function(){
+				            alert("Parágrafo escondido!");
+				        });
+				    });
+				});
+
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        $("p").hide(2000);
+				        alert("Parágrafo escondido!");
+				    });
+				});
+			</span></pre>
+		<li>también se pueden usár varias acciones/métodos al mismo tiempo:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("button").click(function(){
+				        $("#p1").css("color", "red")
+				            .slideUp(2000)
+				            .slideDown(2000);
+				    });
+				});
+			</span></pre>
+	</ul>
+
+
+
+	<h3>jQuery Html</h3>
+	<p>jQuery tiene unos métodos muy poderosos para cambiar y manipular elementos y atributos HTML. Tiene los siguientes métodos para manipular DOM:</p>
+	<ul>
+		<li>text() - establece o devuelve el contenido tipo text de los elementos selectados</li>
+		<li>html() - establece o devuelve el contenido de los elementos selectados incluyendo las etiquetas HTML</li>
+			<pre><span>
+			$(document).ready(function(){
+			    $("#btn1").click(function(){
+			        alert("Text: " + $("#test").text());
+			    });
+			    $("#btn2").click(function(){
+			        alert("HTML: " + $("#test").html());
+			    });
+			});
+			</span></pre>
+		<li>val() - establece o devuelve el valor de un campo</li>
+			<pre><span>
+			    $("btn").click(function(){
+			        alert("Valor: " + $("#test2").val());
+			    });
+			</span></pre>
+		<li>attr() - se utiliza para obtener el valor de un atributo</li>
+			<pre><span>
+				    $("btn").click(function(){
+				        alert($("#jQuery-gratis").attr("href"));
+				    });
+			</span></pre>
+	</ul>
+	<p>text(), html() y val() se pueden utilizar para establecer  contenido de siguiente modo:</p>
+		<pre><span>
+		    $("#test4Boton1").click(function(){
+		        $("#test4").text("Parágrafo 1 cambiado");
+		    });
+		    $("#test5Boton2").click(function(){
+		        $("#test5").html("<b>Parágrafo 2 cambiado!</b>");
+		    });
+		    $("#test6Boton3").click(function(){
+		        $("#test6").val("COSTY");
+		    });
+		</span></pre>
+	<p>Los 3 métodos mencionados anteriormente tienen una función de que se pueden volver a llamar. La función de rellamamento tiene 2 parámetros, una de index, valor nuevo, que es el elemento actual seleccionado y el valor antiguo:</p>
+		<pre><span>
+		    $("#test7btn1").click(function(){
+		        $("#test7").text(function(i, origText){
+		            return "Texto antiguo: " + origText + " Nuevo texto: Hola alumno! (index: " + i + ")";
+		        });
+		    });
+		</span></pre>
+	<p>Para establecer un valor diferente a attr() se hace de este modo:</p>
+		<pre><span>
+		    $("button").click(function(){
+		        $("#test9").attr("href", "http://www.google.com");
+		    });
+		</span></pre>
+
+
+
+	<h3>Añadir elementos</h3>
+	<p>Con jQuery es muy facil añadir elementos. Para esto se usá uno de los siguientes métodos:</p>
+	<ul>
+		<li>append() - inserta contenido al final de los elementos selectados</li>
+			<pre><span>
+			    $("#btn1").click(function(){
+			        $("ol").append("<li><b>Item</b></li>");
+			    });
+			</span></pre>
+		<li>prepend() - inserta contenido al principio de los elementos selectados</li>
+			<pre><span>
+			    $("#btn2").click(function(){
+			        $("ul").prepend("<li><b>Item</b></li>");
+			    });
+			</span></pre>
+		<li>after() - inserta contenido despues de los elementos selectados</li>
+		<li>before() - inserta contenido ante de los elementos selectados</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("#btn3").click(function(){
+				        $("img").before("<b>Ante</b>");
+				    });
+
+				    $("#btn4").click(function(){
+				        $("img").after("<i>Despues</i>");
+				    });
+				});
+			</span></pre>
+		<p>También se pueden añadir varios elementos al mismo tiempo:</p>
+			<pre><span>
+			    function despues() {
+				    var txt1 = "<b>Te </b>";                   // crear elemento con html
+				    var txt2 = $("<i></i>").text("amo ");    // crear elemento con jQuery
+				    var txt3 = document.createElement("b");   // crear elemento con DOM
+				    txt3.innerHTML = " mi amor!<br>";
+				    $("#amor").after(txt1, txt2, txt3);      // insertar elemento despues de img
+				}
+			</span></pre>
+	</ul>
+
+
+
+	<h3>Eliminar elementos</h3>
+	<p>Para eliminar elementos se utiliza:</p>
+	<ul>	
+		<li>remove() - elimina los elementos y sus hijos</li>
+		<li>empty() - elimina los elementos</li>
+			<pre><span>
+			    //test 6
+			    $("button").click(function(){
+			        $("#eliminar").remove();
+			    });
+
+			    //test 7
+			    $("button").click(function(){
+			        $("#vaciar").empty();
+			    });
+			</span></pre>
+	</ul>
+
+
+
+	<h3>Manipular CSS</h3>
+	<p>Con jQuery se conocen varios métodos para manipular CSS:</p>
+	<ul>
+		<li>addClass() - añade una o más clases a un elemento selectado</li>
+			<pre><span>
+			    $("#btn1").click(function(){
+			        $("h4, p").addClass("azul");
+			    });
+			</span></pre>
+		<li>removeClass() - elimina una o más clases de un elemento selectado</li>
+			<pre><span>
+			    $("#btn2").click(function(){
+			        $("h4, p").removeClass("azul importante");
+			    });
+			</span></pre>
+		<li>toggleClass() - alterna entre eliminar y añadir clases de un elemento</li>
+			<pre><span>
+			    $("#btn3").click(function(){
+			        $("#p1, #p2, #p3").toggleClass("azul importante");
+			    });
+			</span></pre>
+		<li>css() - establece o devuelve el estilo de un atributo</li>
+			<pre><span>
+			    $("button").click(function(){
+			        alert("El color de background es = " + $("p").css("background-color"));
+			    });
+
+		        $("#btn5").click(function(){
+			        $(".b1, .b2").css({"background-color": "yellow", "font-size": "200%"});
+			    });
+			</span></pre>
+	</ul>
+
+
+
+	<h3>Trabajar con las dimensiones</h3>
+	<p>jQuery ofrece posibilidad de trabajar con varios métodos en relación a las dimensiones:</p>
+	<ul>
+		<li>width()</li>
+		<li>height()</li>
+			<pre><span>
+			    $("#btn1").click(function(){
+			        var txt = "";
+			        txt += "Tamaño div: " + $("#d1").width() + "</br>";
+			        txt += "Altura div: " + $("#d1").height();
+			        $("#d1").html(txt);
+			    });
+			</span></pre>
+		<li>innerWidth() - devuelve el tamaño del elemento incluido el padding</li>
+		<li>innerHeight() - devuelve la altura del elemento incluiendo el padding</li>
+		<li>outerWidth() - devuelve el tamaño del elemento incluiendo el padding y border</li>
+		<li>outerHeight() - devuelve el altura del elemento incluiendo el paddin y el border</li>
+		<li>para devolver tamaño/altura de un elemento inclyendo padding, border y margin se incluie la palabra true entre parantesis:</li>
+			<pre><span>
+			    $("#btn2").click(function(){
+			        var txt = "";
+			        txt += "Tamaño div: " + $("#d2").width() + "</br>";
+			        txt += "Altura div: " + $("#d2").height() + "</br>";
+			        txt += "Outer width del div (margin incluido): " + $("#d2").outerWidth(true) + "</br>";
+			        txt += "Outer height del div (margin incluido): " + $("#d2").outerHeight(true);
+			        $("#d2").html(txt);
+			    });
+			</span></pre>
+		<li>redimensionar un div</li>
+			<pre><span>
+			    $("#btn3").click(function(){
+			        $("#d3").width(600).height(600);
+			    });
+			</span></pre>
+	</ul>
+
+
+	<h3>Acendientes y Descendientes</h3>
+	<p>En jQuery se puede recorrer el árbol DOM para encontrar los antepasados de un elemento. Hay tres formas de hacerlo:</p>
+	<ul>
+		<li>parent() - devuelve el padre directo de un elemento</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("span").parent().css({"color": "red", "border": "2px solid red"});
+				});
+			</span></pre>
+		<li>parents() - devuelve todos los 'antepasados' de un elemento hasta el elemento html</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("span").parents().css({"color": "red", "border": "2px solid red"});
+				});
+			</span></pre>
+		<li>parentsUntil() - devuelve el padre de un elemento y el padre de este</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("span").parentsUntil("div").css({"color": "red", "border": "2px solid red"});
+				});
+			</span></pre>
+	</ul>
+	<p>Para recorrer el árbol DOM con sus decendientes tenemos:</p>
+	<ul>
+		<li>children() - devuelve todos los hijos directos de un elemento seleccionado, o seleccionando un hijo en especial utilizando un parámetro para la busqueda:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("div").children().css({"color": "red", "border": "2px solid red"});
+				});
+
+				$(document).ready(function(){
+				    $("div").children("p.first").css({"color": "red", "border": "2px solid red"});
+				});
+			</span></pre>
+		<li>find() - devuelve los elementos descendientes de un elemento seleccionado, hasta el ultimo:</li>
+			<pre><span>
+				$(document).ready(function(){
+				    $("div").find("span").css({"color": "red", "border": "2px solid red"});
+				});
+
+				$(document).ready(function(){
+				    $("div").find("*").css({"color": "red", "border": "2px solid red"});
+				});
+			</span></pre>
+	</ul>
+
+
+	<h3>Paso (traspaso) entre hermano</h3>
+	<p>En jQuery es algo normal saltar de un elemento a otro en el árbol DOM. Esto se hace con:</p>
+	<ul>
+		<li>siblings() - devuelve todos los hermanos de un elemento</li>
+			<pre><span>
+				//todo lo que tiene alrededor
+		    	$("h2").siblings().css({"color": "red", "border": "2px solid red"});
+
+		    	//los hermanos que son p
+	    	    $("h2").siblings("p").css({"color": "red", "border": "2px solid red"});
+			</span></pre>
+		<li>next() - devuelve el siguiente elemento hermano</li>
+			<pre><span>
+				//todo lo que tiene alrededor
+		    	$("h2").next().css({"color": "red", "border": "2px solid red"});
+			</span></pre>
+		<li>nextAll() - devuelve todos los hermanos de un elemento seleccionado</li>
+		<li>nextUntil() - devuelve todos los hemanos que hay entre dos argumentos especificados</li>
+			<pre><span>
+    			$("h2").nextUntil("h6").css({"color": "red", "border": "2px solid red"});
+			</span></pre>
+		<li>prev() - devuelve el elemento anterior</li>
+		<li>prevAll() - devuelve todos los elementos anteriores</li>
+		<li>prevUntil() - devuelve los elementos que hay entre dos argumentos especificados</li>
+	</ul>
+
+
+
+	<h3>Filtración de elementos</h3>
+	<p>Los métodos más basicos para la filtración son:</p>
+	<ul>
+		<li>first() - devuelve el primer elemento que hay despues del elemento seleccionado</li>
+			<pre><span>$("div p").first().css("background-color", "lightblue");</span></pre>
+		<li>last() - devuelve el ultimo elemento que hay</li>
+			<pre><span>$("div p").last().css("background-color", "lightgreen");</span></pre>
+		<li>eq() - devuelve el elemento especificado con el número de index</li>
+			<pre><span></span></pre>
+		<li>filter() - devuelve los elementos que coinciden con un criterio</li>
+			<pre><span>$("p").filter(".diferente").css("font-size", "12px");</span></pre>
+		<li>not() - devuelve los elementos que no coinciden con un criterio</li>
+			<pre><span>$("p").not(".diferente").css("font-size", "12px");</span></pre>
+	</ul>
+
+
+	<h3>Más selectores jQuery</h3>
+	<ul>
+		<li>$("*")</li>
+			<pre><span>$("button").click(function(){
+        $("*").hide();});</span></pre>
+		<li>$(this)</li>
+			<pre><span>$("button").click(function(){
+        $(this).hide();});</span></pre>
+		<li>$("p.intro")</li>
+			<pre><span>$("button").click(function(){
+        $("p.intro").hide();});</span></pre>
+		<li>$("p.first")</li>
+			<pre><span>$("button").click(function(){
+        $("p:first").hide();});</span></pre>
+		<li>$("ul li:first")</li>
+			<pre><span>$("button").click(function(){
+        $("ul li:first").hide();});</span></pre>
+		<li>$("ul li:first-child")</li>
+			<pre><span>$("button").click(function(){
+        $("ul li:first-child").hide();});</span></pre>
+		<li>$("[href]")</li>
+			<pre><span>$("button").click(function(){
+        $("[href]").hide();});</span></pre>
+		<li>$("a[target='_blank']")</li>
+			<pre><span>$("button").click(function(){
+        $("a[target='_blank']").hide();});</span></pre>
+		<li>$("a[target != '_blank']")</li>
+			<pre><span></span></pre>
+		<li>$(":button")</li>
+			<pre><span>$("button").click(function(){
+        $(":button").hide();});</span></pre>
+		<li>$("tr:even")</li>
+			<pre><span>$("tr:even").css("background-color", "yellow");</span></pre>
+		<li>$("tr:odd")</li>
+			<pre><span></span></pre>
+	</ul>
+</html>
