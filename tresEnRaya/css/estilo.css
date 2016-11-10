@@ -1,0 +1,51 @@
+body{
+    background-color: darkgreen;
+    z-index: -1;
+    color: white;
+}
+
+#contenedor{
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+    width: 700px;
+    height: 850px;
+}
+
+#controles{
+    position: relative;
+    text-align: center;
+    top: 100px;
+}
+
+#tablero{
+    position: relative;
+    width: 606px;
+    height: 600px;
+    margin: 0 auto;
+    top: 70px;
+    background-color: white;
+    overflow: hidden;
+}
+
+#texto{
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+}
+
+.casilla{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    float: left;
+}
+
+.cruz{
+    background-image: url(../images/cruz.png);
+}
+
+.circulo{
+    background-image: url(../images/circulo.png);
+}
