@@ -1,8 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	//Test 1
     $("#test1Boton1").click(function(){
-        alert("Texto: " + $("#test1").text());
+        alert("Alerta: " + $("#test1").text());
     });
+
     $("#test1Boton2").click(function(){
         alert("HTML: " + $("#test1").html());
     });
@@ -21,9 +22,11 @@ $(document).ready(function(){
     $("#test4Boton1").click(function(){
         $("#test4").text("Parágrafo 1 cambiado");
     });
+
     $("#test5Boton2").click(function(){
         $("#test5").html("<b>Parágrafo 2 cambiado!</b>");
     });
+    
     $("#test6Boton3").click(function(){
         $("#test6").val("COSTY");
     });
