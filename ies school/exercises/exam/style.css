@@ -37,8 +37,8 @@ p{
 
 .generateClouds{
 	position: absolute;
-	width: 150px;
-	height: 79px;
+	width: 149px;
+	height: 80px;
 	background-image: url('img/cloud.png');
 }
 
@@ -51,7 +51,7 @@ p{
 
 .generateTractors{
 	position: absolute;
-	width: 150px;
+	width: 135px;
 	height: 95px;
 	background-image: url('img/tractor.png');
 }
