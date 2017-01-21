@@ -6,7 +6,7 @@ body{
     height: 99%;
 }
 
-#contenedor{
+#container{
     position: relative;
     margin: 0 auto;
     padding: 10px;
@@ -14,7 +14,7 @@ body{
     height: 400px;
 }
 
-#controles{
+#controls{
     position: relative;
     text-align: center;
     top: 150px;
@@ -22,7 +22,7 @@ body{
     font-size: 22px;
 }
 
-#tablero{
+#board{
     position: relative;
     width: 1634px;
     height: 101px;
@@ -31,14 +31,14 @@ body{
     background-color: grey;
 }
 
-#texto{
+#text{
     position: relative;
     text-align: center;
     color: #fff;
     font-size: 22px;
 }
 
-.casilla{
+.square{
     width: 100px;
     height: 100px;
     border: 1px solid black;
@@ -46,7 +46,7 @@ body{
     float: left;
 }
 
-#rojo, #verde{
+#red, #green{
     position: absolute;
     width: 40px;
     height: 40px;
@@ -56,19 +56,19 @@ body{
     left: 15px;
 }
 
-#verde{
+#green{
     top: 40px;
     background-color: green;
 }
 
-.oca{
-    background-image: url(../img/oca.png);
+.goose{
+    background-image: url(img/oca.png);
 }
 
-.pozo{
-    background-image: url(../img/pozo.png);
+.waterWell{
+    background-image: url(img/pozo.png);
 }
 
-.fin{
-    background-image: url(../img/final.png);
+.end{
+    background-image: url(img/final.png);
 }

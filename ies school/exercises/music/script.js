@@ -1,4 +1,49 @@
-$(document).ready(function(){
+$(document).ready(function(){	
+	//mostrar/ocultar las notas no/si deseadas
+	$("#ocultar").click(function(){
+		var ocultarNota = $("#selectarNotas").val().toLowerCase();
+
+		if (ocultarNota != "null") {
+			$("div#" + ocultarNota).toggle();
+		}
+
+	});
+	
+	//deslisar las notas musicales
+	$("#deslisar").click(function(){
+		$("#notasMusicales").slideToggle("slow");
+		$("#deslisar").text("Deslisar /Mostrar Notas");
+	});
+
+	//teclas piano
+	$("#piano").click(function(){
+        $("div.nota:even").css({"background-color": "black", "color": "white"});
+		$("div.nota:odd").css({"background-color": "white", "color": "black"});
+		$('div.nota').css({height: '100px', width: '100px'});
+    });
+	
+	//teclas xilofono
+	$("#xilofono").click(function(){
+        $("div.nota:even").css({"background-color": "#0a0", "color": "white"});
+		$("div.nota:odd").css({"background-color": "#b1b", "color": "black"});
+		$('div.nota').css({'height': '100px', 'width': '100px'});
+    });
+	
+	//teclas guitarra
+	$("#guitarra").click(function(){
+        $("div.nota:even").css({"background-color": "green", "color": "black"});
+		$("div.nota:odd").css({"background-color": "red", "color": "white"});
+
+		var altura;
+		$("div.nota").each(function(i){
+			var altura = 70 + (15 * i);
+
+			$(this).animate({
+				height: altura + "px",
+			}, 200);
+		});
+	});
+	
 	//engrandar y crear opacidad notas cuando se pasa por encima con el ratón
     $(".nota").mouseenter(function(){
 		$(this).css({opacity: '0.7', width: '150px', height: '150px'});
@@ -31,16 +76,6 @@ $(document).ready(function(){
 		$(this).css({opacity: '1', width: '100px', height: '100px'});
 	});
 
-	//mostrar/ocultar las notas no/si deseadas
-	$("#ocultar").click(function(){
-		var ocultarNota = $("#selectarNotas").val().toLowerCase();
-
-		if (ocultarNota != "null") {
-			$("div#" + ocultarNota).toggle();
-		}
-
-	});
-
 	//tambien se puede hacer asi
 	/*
 	$("#agregarQuitar").click(function(){
@@ -48,36 +83,4 @@ $(document).ready(function(){
 		$(".nota").eq(teclas).toggle();
     });
 	*/
-
-	//deslisar las notas musicales
-	$("#deslisar").click(function(){
-		$("#notasMusicales").slideToggle("slow");
-		$("#deslisar").text("Deslisar /Mostrar Notas");
-	});
-
-	//teclas guitarra
-	$("#guitarra").click(function(){
-        $("div.nota:even").css({"background-color": "green", "color": "black"});
-		$("div.nota:odd").css({"background-color": "red", "color": "white"});
-
-		$("div.nota").each(function(i){
-			var alto = 70 + (30 * i);
-
-			$(this).animate({
-				height: alto + "px",
-			}, 100);
-		});
-	});
-
-	//teclas piano
-	$("#piano").click(function(){
-        $("div.nota:even").css({"background-color": "black", "color": "white"});
-		$("div.nota:odd").css({"background-color": "white", "color": "black"});
-    });
-
-	//teclas xilofono
-	$("#xilofono").click(function(){
-        $("div.nota:even").css({"background-color": "#0a0", "color": "white"});
-		$("div.nota:odd").css({"background-color": "b1b", "color": "black"});
-    });
 });

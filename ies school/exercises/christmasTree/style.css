@@ -1,4 +1,4 @@
-#contenedor{
+#container{
     position: relative;
     margin: 0 auto;
     padding: 10px;
@@ -6,19 +6,13 @@
     height: 800px;
 }
 
-#controles{
+#buttons{
     position: relative;
     margin: 0 auto;
     overflow: hidden;
 }
 
-#comenzar {
-    float: left;
-    margin-left: 25px;
-    display: block;
-}
-
-#arbol{
+#tree{
     position: relative;
     top: 0px;
     left: 0px;
@@ -26,7 +20,7 @@
     height: 700px;
 }
 
-#juego{
+#game{
     position: relative;
     width: 600px;
     height: 700px;
@@ -35,7 +29,7 @@
     background-color: white;    
 }
 
-.bolita{
+.ballon{
     position: absolute;
     width: 35px;
     height: 35px;

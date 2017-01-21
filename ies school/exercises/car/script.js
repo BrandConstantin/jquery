@@ -45,12 +45,12 @@ $(document).ready(function(){
                 positionCar = $('#car').position().left;
 
                 if(!green){
-                	if(positionCar - positionTrafficLight > 780 ||
+                	if(positionCar - positionTrafficLight > 800 ||
                 		positionCar - positionTrafficLight < -10){
             			$('#car').animate({left: '-=10px'}, 1);
             		}
         		}else{
-        			$('#car').animate({left: '-=10px'}, 1);
+        			$('#car').animate({left: '-=10px'}, 1); //en verde
         		}
             break;
             case 38: // Up Arrow
@@ -61,8 +61,8 @@ $(document).ready(function(){
                 positionCar = $('#car').position().left;
 
                 if(!green){
-                	if(positionCar - positionTrafficLight > 480 ||
-                		positionCar - positionTrafficLight < -10){
+                	if(positionTrafficLight - positionCar > 800 ||
+                		positionTrafficLight - positionCar < -10){
             			$('#car').animate({left: '+=10px'}, 1);
             		}
         		}else{

@@ -1,19 +1,59 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"></meta>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="../jquery-3.1.1.min.js"></script>
-		<script src="script.js"></script>
-		<title>Create Music</title>
-	</head>
-	<body>
-        <div id="clouds"></div>
-        <div id="container">
-            <div id="road"></div>
-            <div id="car"></div>
-            <div id="trafficLight"></div>
-            <div id="human"></div>
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrumentos Musicales</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="script.js"></script>
+    
+</head>
+    
+<body>
+    <div id="contenedor">
+        <div>
+            <h4>Mostrar/Ocultar una nota:</h4>
+            <select id="selectarNotas">
+                <option id="nota" selected disabled>Nota</option>
+                <option id="do">Do</option>
+                <option id="re">Re</option>
+                <option id="mi">Mi</option>
+                <option id="fa">Fa</option>
+                <option id="sol">Sol</option>
+                <option id="la">La</option>
+                <option id="si">Si</option>
+            </select>
+            <button id="ocultar">Mostrar/Ocultar Nota</button>
         </div>
-	</body>
+        <br>
+
+        <div id="notasMusicales">
+            <h4>Crea canción:</h4>
+            <div id="do" class="nota">DO</div>
+            <div id="re" class="nota">RE</div>
+            <div id="mi" class="nota">MI</div>
+            <div id="fa" class="nota">FA</div>
+            <div id="sol" class="nota">SOL</div>
+            <div id="la" class="nota">LA</div>
+            <div id="si" class="nota">SI</div>
+        </div>
+        <br><br><br><br>
+
+        <div id="botones">
+            <h4>Botones:</h4>
+            <td><button id="deslisar">Deslisar Partitura</button></td>
+            <td><button id="piano">Piano</button></td>
+            <td><button id="xilofono">Xilofono</button></td>
+            <td><button id="guitarra">Guitarra</button></td>
+        </div>
+        <br>
+
+        <div id="partitura" style="background-image: url('img/partitura.png');">
+            <h4>Partitura:</h4>
+            <hr>
+            <br><br><br><br>
+            <div class="dibujarNota"><img src="img/nota.png" style="margin-left: 0; top: 90px; visibility: hidden;"></div>
+        </div>
+    </div>
+</body>
 </html>

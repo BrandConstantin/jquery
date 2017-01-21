@@ -1,0 +1,58 @@
+#contenedor{
+	height: 100%;
+	width: 100%;
+}
+
+#do, #re, #mi, #fa, #sol, #la, #si {
+	border: 1px solid;
+	display: inline-block;
+	float: left;
+	font-size: 20px;
+	text-align: center;
+	width: 100px; 
+	height: 100px; 
+	background-color: goldenrod;
+}
+
+#partitura {
+	width: 99%;
+	width: 99%;
+	height: 300px;
+	background-repeat: repeat;
+	position: relative;
+}
+
+#notasMusicales{
+	float: left;
+	position: relative;
+}
+
+#botones{
+	margin-top: 250px;
+}
+
+#deslisar {
+	display: inline-block;
+	margin-top: 5px;
+}
+
+#xilofono, #piano, #guitarra {
+	width: 205px;
+}
+
+.teclaNegra {
+	background-color: black;
+	color: white;
+}
+
+.teclaBlanca {
+	background-color: white;
+}
+
+.dibujarNota {
+	float: left;
+	margin-left: 80px;
+	position: relative;
+	width: 30px;
+	height: 30px;
+}
