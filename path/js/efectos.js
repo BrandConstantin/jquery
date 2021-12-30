@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     // show
     $('#mostrar').click(function(){
-        $('img').show('slow'); // fast; 2000
+        $('img').show("slow"); // fast; 2000
     });
 
     // fadeIn
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     // toggle
     $('#ocultar').click(function(event){
-        $('img').toggle('slow');
+        $('img').toggle("slow");
     });
 
     // fadeTo
@@ -38,5 +38,27 @@ $(document).ready(function(){
         $('#img').fadeTo("slow", 0.5);
     }, function(){
         $('#img').fadeTo("slow", 0.5);
+    });
+
+    // slideUp
+    $('#mostrar').click(function(event){
+        $('img').slideUp(3000); // fast; 2000
+    });
+
+    // slideDown
+    $('#ocultar').click(function(event){
+        $('img').slideDown("slow"); // fast; 2000
+    });
+
+    // slideToggle
+    $('#ocultar').click(function(event){
+        $('img').slideToggle("slow"); // fast; 2000
+    });
+
+    // animate
+    $('#animar').click(function(){
+        $('#cuadro').animate({with: 800, height: 600}, 3000);
+        $('#cuadro').animate({opacity: 0.4}, 2000);
+        $('#cuadro').animate({"left": "-=50px"}, "slow");
     });
 });

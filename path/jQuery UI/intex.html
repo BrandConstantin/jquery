@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery UI</title>
+    <link rel="stylesheet" href="js/jquery-ui-1.13.0/jquery-ui.css">
+    <style>
+        #mover{
+            width: 100px;
+            height: 100px;
+            background-color: #F46628;
+        }
+        #soltar{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            color: #fff;
+        }
+        .soltado{
+            background-color: #5b288c !important;
+            color: #fff;
+        }
+        .hover{
+            background-color: #4b3262 !important;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <label for="calendario">Seleccione fecha</label>
+    <input type="text" id="calendario">
+
+    <div id="mover" class="ui-widget-content"><p>Mover</p></div>
+
+    <div id="soltar" class="ui-widget-content"><p>Soltar</p></div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+    <script src="js/myjs.js"></script>
+</body>
+</html>
