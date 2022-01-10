@@ -32,4 +32,30 @@ $(document).ready(function(){
             $(this).addClass('soltado').find("p").text('Soltado aquí!');
         }
     });
+
+    // resizable
+    $('#resizable').resizable({
+        animate: true,
+        containment: '#contenedor'
+    });
+
+    // selectable
+    $('#seleccionar').selectable({
+        stop: function(){
+            var resultado = $('#resultado').empty();
+            $('.ui-selected', this).each(function(){
+                var index = $('#seleccionar li').index(this);
+                resultado.append('Selecciono ' + (index + 1));
+            });
+        }
+    });
+
+    // accordion
+    var iconos = {
+        header: "ui-icon-circle-arrow-e",
+        activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $('#acordeon').accordion({
+        icons: iconos
+    });
 });

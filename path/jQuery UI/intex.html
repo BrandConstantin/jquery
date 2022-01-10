@@ -26,6 +26,22 @@
             background-color: #4b3262 !important;
             color: #fff;
         }
+        #resizable{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            color: #fff;
+        }
+        #contenedor{
+            width: 500px;
+            height: 300px;
+            border: 2px solid black
+        }
+
+        #seleccionar .ui-selecting {background: #FECA40;}
+        #seleccionar .ui-selected {background: #F39814; color: #fff;}
+        #seleccionar {list-style-type:none; margin: 0; padding: 0; width: 60%;}
+        #seleccionar li {margin: 4px; padding: 0.4em; font-size: 1.4em; height: 18px;}
     </style>
 </head>
 <body>
@@ -35,6 +51,40 @@
     <div id="mover" class="ui-widget-content"><p>Mover</p></div>
 
     <div id="soltar" class="ui-widget-content"><p>Soltar</p></div>
+
+    <div id="contenedor">
+        <div id="resizable" class="ui-widget-content"></div>
+    </div>
+
+    <br/>
+
+    <ol id="seleccionar">
+        <li class="ui-widget-content">Item 1</li>
+        <li class="ui-widget-content">Item 2</li>
+        <li class="ui-widget-content">Item 3</li>
+        <li class="ui-widget-content">Item 4</li>
+        <li class="ui-widget-content">Item 5</li>
+        <li class="ui-widget-content">Item 6</li>
+        <li class="ui-widget-content">Item 7</li>
+    </ol>
+    <div id="resultado"></div>
+
+    <br/>
+
+    <div id="acordeon">
+        <h3>Sección 1</h3>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, minima consequatur at cupiditate reprehenderit ipsam quasi delectus pariatur necessitatibus labore possimus eius veritatis vel molestias praesentium repellendus accusamus perferendis dolorem.</p>
+        </div>
+        <h3>Sección 2</h3>
+        <div>
+            <p>Iste, illum obcaecati odio ipsa quia aliquid ut mollitia nobis in, id harum reiciendis provident corrupti dolorum laudantium maxime recusandae tempore, facilis delectus numquam fugiat ea facere doloribus esse? Molestiae.</p>
+        </div>
+        <h3>Sección 3</h3>
+        <div>
+            <p>Dignissimos fugit nobis, doloremque dolorum distinctio similique minima vel eveniet velit, doloribus asperiores nisi rem molestiae dolores illo nostrum enim nesciunt corporis architecto! Id mollitia quibusdam quis quod, voluptatem eveniet.</p>
+        </div>
+    </div>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/jquery-ui-1.13.0/jquery-ui.min.js"></script>
