@@ -2,7 +2,7 @@ $(document).ready(function(){
     // autocomplete
     var colores = ["rojo", "verde", "azul", "amarillo", "blanco", "violeta", "dorado", "celeste", "rosa", "negro", "gris"];
     $('#color').autocomplete({
-        //source: colores
+        // source: colores
         souce: function(request, response){
             $.ajax({
                 url: "colore.php",
@@ -52,4 +52,21 @@ $(document).ready(function(){
         contador += 5;
         $('#progreso').progressbar("value", contador);
     }, 1000);
+
+    // slider
+    $('#volumen').slider({
+        range: true,
+        min: 0,
+        max: 400,
+        values: [75, 250],
+        slide: function(event, ui){
+            $('#rangoA').text(ui.values[0]);
+            $('#rangoB').text(ui.values[1]);
+        }
+    });
+
+    // tabs
+    $('#tabs').tabs({
+        event: "mouseover"
+    });
 });

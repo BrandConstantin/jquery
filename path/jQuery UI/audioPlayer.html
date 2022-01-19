@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jquery UI - slider Control de volumen</title>
+    <link rel="stylesheet" href="js/jquery-ui-1.13.0/jquery-ui.css">
+  </head>
+  <body>
+    <div id="player"></div>
+    <div id="volume"></div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#volume").slider({
+          min: 0,
+          max: 100,
+          value: 0,
+          slide: function (event, ui) {
+            setVolume(ui.value / 100);
+          },
+        });
+
+        var myMedia = document.createElement("audio");
+        $("#player").append(myMedia);
+        myMedia.id = "myMedia";
+        playAudio("Carly_Rae_Jepsen", 0);
+
+        function playAudio(fileName, myVolume) {
+          var mediaExt = myMedia.canPlayType("audio/mp3")
+            ? ".mp3"
+            : myMedia.canPlayType("audio/ogg")
+            ? ".ogg"
+            : "";
+          if (mediaExt) {
+            myMedia.src = fileName + mediaExt;
+            myMedia.setAttribute("loop", "loop");
+            setVolume(myVolume);
+            myMedia.play();
+          }
+        }
+
+        function setVolume(myVolume) {
+          var myMedia = document.getElementById("myMedia");
+          myMedia.volume = myVolume;
+        }
+      });
+    </script>
+  </body>
+</html>
