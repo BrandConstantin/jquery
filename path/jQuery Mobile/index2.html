@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Mobile</title>
+    <link href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet">
+</head>
+<body>
+    <div data-role="page" id="pagina1">
+        <div data-role="header">
+            <h1>Página Transaciones</h1>
+        </div>
+        <div data-role="content">
+            <a href="#pagina2" data-role="button" data-transition="pop">Página 2</a>
+        </div>
+        <div data-role="footer">
+            <h4>Pie de página</h4>
+        </div>
+    </div>
+    <div data-role="page" id="pagina2">
+        <div data-role="header">
+            <h1>Página Transaciones</h1>
+        </div>
+        <div data-role="content">
+            <a href="#pagina1" data-role="button" data-transition="flow">Página 1</a>
+            <a href="#pagina3" data-role="button" data-transition="flip">Página 3</a>
+        </div>
+        <div data-role="footer">
+            <h4>Pie de página</h4>
+        </div>
+    </div>
+    <div data-role="page" id="pagina3">
+        <div data-role="header">
+            <h1>Página Transaciones</h1>
+        </div>
+        <div data-role="content">
+            <a href="#pagina2" data-role="button" data-transition="slideup">Página 2</a>
+            <a href="#dialogo" data-rel="dialog" data-role="button" data-transition="slideup">Dialogo</a>
+        </div>
+        <div data-role="footer">
+            <h4>Pie de página</h4>
+        </div>
+    </div>
+    <div data-role="page" id="dialogo">
+        <div data-role="header">
+            <h1>Dialogo</h1>
+        </div>
+        <div data-role="content">
+            <a href="#pagina1" data-role="button">Aceptar</a>
+            <a href="#pagina1" data-role="button">Cancelar</a>
+        </div>
+        <div data-role="footer">
+            <h4>Pie de página</h4>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</body>
+</html>

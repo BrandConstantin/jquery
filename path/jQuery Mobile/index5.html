@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Mobile</title>
+    <link href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet">
+</head>
+<body>
+    <div data-role="page" id="pagina1">
+        <div data-role="header">
+            <h1>Listas</h1>
+        </div>
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Buscar curso...">
+                <li data-theme="b"><a href="#">PHP</a></li>
+                <li data-theme="c"><a href="#"><img src="">jQuery</a></li>
+                <li data-theme="b"><a href="#">Java <span class="ui-li-count">23</span></a></li>
+                <li data-theme="c"><a href="#">JavaScript <span class="ui-li-aside">326</span></a></li>
+            </ul>
+        </div>
+        <div data-role="footer" class="ui-bar">
+            <h2>Píe de página</h2>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</body>
+</html>
