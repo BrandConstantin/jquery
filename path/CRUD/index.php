@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CRUD - Crear, leer, actualizar, eliminar</title>
     <link href="jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="style.css" rel="styelsheet" />
   </head>
   <body>
     <div class="ui-widget">
@@ -152,5 +153,6 @@
 
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="jquery-ui/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
