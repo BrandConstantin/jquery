@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticiones Ajax</title>
+</head>
+<body>
+    <div class="repos"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: "https://api.github.com/users/brandconstantin/repos",
+            dataType: "json"
+        }).done(function(repos){
+            repos.forEach(function(repo){
+                $('.repos').append('<div>'+repo.name+'('+repo.language+')</div>');
+            });
+        });
+    </script>
+</body>
+</html>

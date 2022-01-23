@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticiones Ajax</title>
+</head>
+<body>
+    <div class="photos"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var accessToken = "4776827.b5543ab.48c340763d1241c4aaceb0a898ce974a";
+        $.ajax({
+            url: "https://api.instagram.com/v1/users/self/media/recent/?access_token=" +  accessToken,
+            dataType: "jsonp"
+        }).done(function(response){
+            var photos = response.data;
+            photos.forEach(function(photo){
+                $('.photos').append('<img src="' + photo.images.low_resolution.url + '">');
+            });
+        });
+    </script>
+</body>
+</html>
