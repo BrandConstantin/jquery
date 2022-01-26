@@ -7,10 +7,18 @@
     <title>Peticiones Ajax</title>
     <style>
         *{margin: 0; padding: 0; box-sizing: border-box;}
-        .wrapper{background: rgb(86, 73, 86);font-size: 15px;border:1px;padding: 20px;margin:40px auto; width: 400px;}
-        form input{padding: 10px; width: 80%; padding-bottom: 20px;}
-        form button{background: #82f;}
+        body{background: rgb(181, 158, 181);font-size: 18px;font-family: 'Courier New', Courier, monospace;}
+        .wrapper{background: rgb(214, 205, 214);font-size: 15px;border:1px solid black;padding: 20px;margin:40px auto; width: 500px;}
+        form input{padding: 10px; width: 100%; padding-bottom: 20px;font-size: 15px;}
+        form button{background: #82f;border: none;padding: 12px;width: 49px;}
+        #messages{list-style-type: none;margin: 0;padding: 0;min-height: 400px;}
+        #messages li{color: #555;padding: 10px 10px;}
+        #messages li:nth-child(even){background: #fafafa;}
+        .navbar{text-align: right;}
     </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -20,40 +28,73 @@
         </form>
     </div>
 
-    <script src="socket-4.4.1.io.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- IMPORTANT TYPE MODULE-->
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
-        import { database } from 'https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js'
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyAymXMXYUsD-pkDV9nHtd9L2f4Jndrpy7Y",
-          authDomain: "chat-example-b7a4d.firebaseapp.com",
-          projectId: "chat-example-b7a4d",
-          storageBucket: "chat-example-b7a4d.appspot.com",
-          messagingSenderId: "367574142311",
-          appId: "1:367574142311:web:b8bff451c1bb09fc8db3c2"
+            apiKey: "AIzaSyAymXMXYUsD-pkDV9nHtd9L2f4Jndrpy7Y",
+            authDomain: "chat-example-b7a4d.firebaseapp.com",
+            databaseURL: "https://chat-example-b7a4d-default-rtdb.firebaseio.com",
+            projectId: "chat-example-b7a4d",
+            storageBucket: "chat-example-b7a4d.appspot.com",
+            messagingSenderId: "367574142311",
+            appId: "1:367574142311:web:b8bff451c1bb09fc8db3c2"
         };
 
+
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
 
-        // initialize bbdd
-        var database = app.database();
+        // if (app.length === 0) {
+        //     alert("no firebas app")
+        // }else{
+        //     alert("initialized")
+        // }
 
-        var messages = database.ref('messages');
+        const messages = firebase.database().ref('messages');
+
         messages.on('child_added', function(data){
-            $('#messages').append('<li>'+data.val().body+'</li>');
+            $('#messages').append('<li>' + data.val().body + '</li>');
         });
-        $('form').on('submit', function(){
+
+        messages.on("child_removed", function(){
+            $("#messages #" + data.key).remove();
+        });
+
+        $('form').on('submit', function(e){
             e.preventDefault();
-            messages.push().set({body: $('#m').val()});
+            messages.push().set({ body: $('#m').val() })
+                .catch(function(error){
+                    if(error.code.toLowerCase() == "permission_denied"){
+                        alert("NO tienes permisos para escribir");
+                    }else{
+                        alert("Error inesperado " + error);
+                    }
+                });
             $('#m').val('');
         });
-      </script>
+
+        $('#login').on('click', function(e){
+            e.preventDefault();
+            firebase.auth().signOut();
+        });
+
+        $('#logout').on('click', function(e){
+            e.preventDefault();
+            var provider = new firebase.auth.GithubAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+        });
+
+        firebase.auth().getRedirectResult().then(function(result){
+            firebase.auth().onAuthStateChanged(function(user){
+                if(user){
+                    $('#login').hide();
+                    $('#logout').show();
+                }else{
+                    $('#login').show();
+                    $('#logout').hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
